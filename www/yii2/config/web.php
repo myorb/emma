@@ -14,6 +14,12 @@ $config = [
                 'application/json' => 'yii\web\JsonParser',
             ]
         ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'redis',
+            'port' => 6379,
+            'database' => 0,
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -45,9 +51,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'app\modules\v1\Api'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['api/todo'=>'api/default']],
                 'login' => 'site/login',
                 '/'=>'/site/index',
             ],

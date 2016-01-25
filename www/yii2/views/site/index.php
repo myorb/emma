@@ -16,18 +16,28 @@ $this->title = 'My Yii Application';
     <br>
 
     <div ng-repeat="x in todoList">
-        <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+        <input type="checkbox" ng-model="x.done">  <span ng-bind="x.todoText"></span>
     </div>
 
     <p><button ng-click="remove()">Remove marked</button></p>
-
     <script>
-        var app = angular.module('myApp', []);
-        app.controller('todoCtrl', function($scope) {
-            $scope.todoList = [{todoText:'Clean House', done:false}];
+        var app = angular.module('myApp', ['ngResource']);
+        app.factory("Item", function($resource) {
+            return $resource("/api/todo/:id");
+        });
+
+        app.controller('todoCtrl', function($scope,Item) {
+
+            Item.query(function(data) {
+                $scope.todoList = data;
+            });
 
             $scope.todoAdd = function() {
-                $scope.todoList.push({todoText:$scope.todoInput, done:false});
+                $scope.item = new Item();
+                $scope.item.todoText =$scope.todoInput;
+                $scope.item.done = false;
+                Item.save($scope.item);
+                $scope.todoList.push($scope.item);
                 $scope.todoInput = "";
             };
 
@@ -35,7 +45,12 @@ $this->title = 'My Yii Application';
                 var oldList = $scope.todoList;
                 $scope.todoList = [];
                 angular.forEach(oldList, function(x) {
-                    if (!x.done) $scope.todoList.push(x);
+                    if (!x.done){
+                        $scope.todoList.push(x);
+                    }else{
+                        Item.delete({id: x.id});
+                    }
+
                 });
             };
         });
