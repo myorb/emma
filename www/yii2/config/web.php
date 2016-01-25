@@ -38,19 +38,28 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'login' => 'site/login',
             ],
         ],
-        */
+
+    ],
+    'modules' => [
+        'api' => [
+            'class' => 'app\modules\v1\Api',
+        ],
+        'admin' => [
+            'class' => 'app\modules\admin\Api',
+        ],
     ],
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+if (true) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
@@ -59,6 +68,7 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
+        'allowedIPs' => ['*'],
         'class' => 'yii\gii\Module',
     ];
 }

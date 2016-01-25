@@ -50,10 +50,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        var_dump(Yii::$app->db->open());
-        var_dump(Yii::$app->db);
+//        var_dump(Yii::$app->db->open());
+//        var_dump(Yii::$app->db);
         
-        die();
+//        die();
 
         return $this->render('index');
     }
@@ -71,6 +71,20 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function actionTodo()
+    {
+//        if (!\Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        }
+        $this->layout = "angular";
+        return $this->render('todo');
     }
 
     public function actionLogout()
