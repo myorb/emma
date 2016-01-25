@@ -1,7 +1,7 @@
 server {
   server_name default;
   root        /var/www/yii2/web;
-  index       index.php;
+  index       index.php index.html;
 
   client_max_body_size 100M;
   fastcgi_read_timeout 1800;

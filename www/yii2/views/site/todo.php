@@ -1,3 +1,4 @@
+<div ng-app="myApp" ng-controller="todoCtrl">
 
 <h2>My Todo List</h2>
 
@@ -33,3 +34,4 @@
         };
     });
 </script>
+</div>

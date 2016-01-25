@@ -112,7 +112,6 @@
 
     <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
 </div>
-</body>
 <script>
     function TodoCtrl($scope) {
 

@@ -83,7 +83,7 @@ class SiteController extends Controller
 //        if ($model->load(Yii::$app->request->post()) && $model->login()) {
 //            return $this->goBack();
 //        }
-        $this->layout = "angular";
+//        $this->layout = "angular";
         return $this->render('todo');
     }
 
