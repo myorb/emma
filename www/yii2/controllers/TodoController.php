@@ -68,6 +68,7 @@ class TodoController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->done = 0;
             return $this->render('create', [
                 'model' => $model,
             ]);

@@ -12,15 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name') ?>
-
-    <?= $form->field($model, 'gender') ?>
-
-    <?= $form->field($model, 'address') ?>
-
-    <?= $form->field($model, 'status') ?>
-
     <?= $form->field($model, 'todoText') ?>
+    <?= $form->field($model, 'done') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

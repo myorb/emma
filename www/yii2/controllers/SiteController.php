@@ -73,20 +73,6 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionTodo()
-    {
-//        if (!\Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
-//
-//        $model = new LoginForm();
-//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            return $this->goBack();
-//        }
-//        $this->layout = "angular";
-        return $this->render('todo');
-    }
-
     public function actionLogout()
     {
         Yii::$app->user->logout();

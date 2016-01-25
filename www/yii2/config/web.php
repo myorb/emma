@@ -56,6 +56,12 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => ['api/todo'=>'api/default']],
                 'login' => 'site/login',
                 '/'=>'/site/index',
+                'todo'=>'/todo/index',
+                'todo/create'=>'/todo/create',
+                'todo/update'=>'/todo/update',
+                'todo/delete'=>'/todo/delete',
+                'todo/view'=>'/todo/view',
+
             ],
         ],
 

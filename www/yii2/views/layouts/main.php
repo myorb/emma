@@ -39,7 +39,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Todo App', 'url' => ['/site/index']],
-//            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Todo Native', 'url' => ['/todo/index']],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
 //            ['label' => 'Todo', 'url' => ['/site/todo']],
             ['label' => 'Api', 'url' => ['/api']],
