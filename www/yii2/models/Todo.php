@@ -19,13 +19,14 @@ class Todo extends ActiveRecord
     }
     public function attributes()
     {
-        return ['id', 'todoText','done', 'created_at','updated_at'];
+        return ['id', 'name','todoText','done', 'created_at','updated_at'];
     }
 
     public function rules()
     {
         return [
             [['todoText'], 'required'],
+            [['todoText', 'name'], 'string'],
             [['done'],'boolean'],
             [['created_at','updated_at'], 'integer'],
         ];

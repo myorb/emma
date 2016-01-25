@@ -9,14 +9,15 @@ $this->title = 'My Yii Application';
     <h2>My Todo List</h2>
 
     <form ng-submit="todoAdd()">
-        <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+        <input type="text" ng-model="name" size="25" placeholder="Name">
+        <input type="text" ng-model="todoInput" size="50" placeholder="Note">
         <input type="submit" value="Add New">
     </form>
 
     <br>
 
     <div ng-repeat="x in todoList">
-        <input type="checkbox" ng-model="x.done">  <span ng-bind="x.todoText"></span>
+        <input type="checkbox" ng-model="x.done"> Who:<b ng-bind="x.name"></b> Task: <b ng-bind="x.todoText"></b>
     </div>
 
     <p><button ng-click="remove()">Remove marked</button></p>
@@ -35,7 +36,8 @@ $this->title = 'My Yii Application';
             $scope.todoAdd = function() {
                 $scope.item = new Item();
                 $scope.item.todoText =$scope.todoInput;
-                $scope.item.done = false;
+                $scope.item.name =$scope.name;
+                $scope.item.done = 0;
                 Item.save($scope.item);
                 $scope.todoList.push($scope.item);
                 $scope.todoInput = "";
@@ -45,7 +47,7 @@ $this->title = 'My Yii Application';
                 var oldList = $scope.todoList;
                 $scope.todoList = [];
                 angular.forEach(oldList, function(x) {
-                    if (!x.done){
+                    if (x.done == 0){
                         $scope.todoList.push(x);
                     }else{
                         Item.delete({id: x.id});

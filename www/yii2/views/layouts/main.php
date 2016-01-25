@@ -42,7 +42,7 @@ AppAsset::register($this);
             ['label' => 'Todo Native', 'url' => ['/todo/index']],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
 //            ['label' => 'Todo', 'url' => ['/site/todo']],
-            ['label' => 'Api', 'url' => ['/api']],
+            ['label' => 'Api', 'url' => ['/api/todo']],
             ['label' => 'Api Documentation', 'url' => ['/doc/index.html']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
